@@ -63,7 +63,7 @@ const renderSearchBox = (renderOptions, isFirstRender) => {
     if (isFirstRender) {
         const input = document.createElement('input');
         input.classList.add('rounded-md', 'shadow-lg', 'w-full', 'py-3', 'px-5', 'text-gray-400', 'bg-white', 'bg-opacity-20', 'placeholder-white', 'placeholder-opacity-40', 'focus:outline-none', 'focus:ring-4', 'focus:ring-white', 'focus:ring-opacity-30')
-        input.placeholder = '🔎 Serch me...';
+        input.placeholder = '🔎 Search me...';
 
         const loadingIndicator = document.createElement('span');
         loadingIndicator.textContent = 'Loading...';

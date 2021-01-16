@@ -4,7 +4,7 @@
 == Secrets
 
 
-> Node uses Environments Secrets while Python uses Secrets
+> Node uses https://github.com/aymanapatel/my-notes-algolia/settings/environments/103615062/edit[Environments Secrets] while Python uses https://github.com/aymanapatel/my-notes-algolia/settings/secrets/actions/KEY[Secrets]
 
 === Check if Secrets is working
 
