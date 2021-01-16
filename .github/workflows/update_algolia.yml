@@ -18,17 +18,7 @@ jobs:
     
     - name: Install dependencies
       run: python -m pip install --upgrade pip algoliasearch jproperties
-    
-    - name: Test secret
-      run: |
-        if [ "$KEY" == "4187fadce79096b59dfd5c1df792754f" ] 
-        then 
-          echo "Got secret"
-        else
-          echo "Erro getting secret"  
-        fi
-      env: 
-        KEY: ${{ secrets.KEY }}  
+     
     - name: Run algolia.py
       run: python algolia.py
       env:
