@@ -28,5 +28,5 @@ jobs:
     - name: Run algolia.py
       run: python algolia.py
       env:
-        KEY: ${{ secrets.KEY }}
+        KEY: ${{ secrets.PYTHON_ALGOLIA_KEY }}
       
