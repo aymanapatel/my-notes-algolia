@@ -41,7 +41,7 @@ const renderHits = (renderOptions, isFirstRender) => {
                                     </a>
                                 </div>
                                 <div class="mt-2 px-3 py-1 text-sm bg-purple-500 rounded-full text-gray-100 font-bold break-words">
-                                    ${instantsearch.highlight({ attribute: 'technology', hit: item })}
+                                    ${instantsearch.highlight({ attribute: 'technology', hit: "process.env.KEY" })}
                                 </div>
                             </div>
                             `
