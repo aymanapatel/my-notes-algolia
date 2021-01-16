@@ -6,7 +6,7 @@
 // const apiKeySecret = properties.get('ALGOLIAapikeysecret');
 // const searchClient = algoliasearch(applicationId, apiKeySecret);
 
-const searchClient = algoliasearch('T81G59BI39', process.env.PYTHON_ALGOLIA_KEY);
+const searchClient = algoliasearch('T81G59BI39', process.env.KEY);
 
 const search = instantsearch({
     indexName: 'my-notes',
