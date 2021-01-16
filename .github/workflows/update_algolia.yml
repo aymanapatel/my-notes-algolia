@@ -1,4 +1,4 @@
-name: Update Algolia
+name: Update Algolia with secret
 on:
   push:
     branches:
