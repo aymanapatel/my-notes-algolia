@@ -27,7 +27,6 @@ jobs:
         else
           echo "Erro getting secret"  
         fi
-        else  
       env: 
         KEY: ${{ secrets.KEY }}  
     - name: Run algolia.py
