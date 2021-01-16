@@ -15,25 +15,13 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: '3.8'
-    - name: Setup node
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12
+
     - name: Test Node Secret
       run: node key.js
    
     - name: Install dependencies
       run: python -m pip install --upgrade pip algoliasearch jproperties
-    - name: Test secret
-      run: |
-        if [ "$KEY" == "9102a56a9ee365b235fd29563dd52b0a" ] 
-        then 
-          echo "Got secret"
-        else
-          echo "Erro getting secret"  
-        fi
-      env: 
-        KEY: ${{ secrets.PYTHON_ALGOLIA_KEY  }}  
+
     - name: Run algolia.py
       run: python algolia.py
       env:
