@@ -1,4 +1,5 @@
 = My Notes
+:toc:
 
 == Secrets
 
@@ -20,3 +21,7 @@
       env: 
         KEY: ${{ secrets.KEY }}  
 ```
+
+== Webpack static 
+
+https://github.com/ivarprudnikov/webpack-static-html-pages/tree/gh-pages[Github repo]
