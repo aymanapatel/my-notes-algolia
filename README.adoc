@@ -3,6 +3,7 @@
 
 == Secrets
 
+https://www.youtube.com/watch?v=WuWsg0Ldess&t=142
 
 > Node uses https://github.com/aymanapatel/my-notes-algolia/settings/environments/103615062/edit[Environments Secrets] while Python uses https://github.com/aymanapatel/my-notes-algolia/settings/secrets/actions/KEY[Secrets]
 
