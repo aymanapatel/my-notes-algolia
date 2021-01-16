@@ -1,4 +1,4 @@
-const temp =process.env.KEY;
+const temp = process.env.NODE_ALGOLIA_KEY;
 
 if (temp == '9102a56a9ee365b235fd29563dd52b0a')
 console.log("Good key")
