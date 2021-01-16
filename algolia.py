@@ -4,15 +4,13 @@ import csv
 from algoliasearch.search_client import SearchClient
 
 # add conditional for github workflow 
-
-
-from jproperties import Properties
-configs = Properties()
-with open('keys.properties', 'rb') as config_file:
-    configs.load(config_file)
-
-
 #  Application ID and API Key
+
+
+#from jproperties import Properties
+#configs = Properties()
+#with open('keys.properties', 'rb') as config_file:
+#    configs.load(config_file)
 #client = SearchClient.create(configs.get("ALGOLIAapplicationid").data, configs.get("ALGOLIAapikeysecret").data) #local
 
 client = SearchClient.create("T81G59BI39", str(os.environ.get("KEY")))
