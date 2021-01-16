@@ -1,0 +1,22 @@
+= My Notes
+
+== Secrets
+
+
+> Node uses Environments Secrets while Python uses Secrets
+
+=== Check if Secrets is working
+
+
+```yml
+    - name: Test secret
+      run: |
+        if [ "$KEY" == "<your-secret>" ] 
+        then 
+          echo "Got secret"
+        else
+          echo "Erro getting secret"  
+        fi
+      env: 
+        KEY: ${{ secrets.KEY }}  
+```
