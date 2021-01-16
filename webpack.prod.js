@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
-const buildPath = path.resolve(__dirname, 'dist')
+const buildPath = path.resolve(__dirname, 'docs')
 
 module.exports = {
 
@@ -16,9 +16,7 @@ module.exports = {
 
   // https://webpack.js.org/concepts/entry-points/#multi-page-application
   entry: {
-    index: './src/page-index/main.js',
-    about: './src/page-about/main.js',
-    contacts: './src/page-contacts/main.js'
+    index: './src/page-index/main.js'
   },
 
   // how to write the compiled files to disk
@@ -71,18 +69,6 @@ module.exports = {
       inject: 'body',
       chunks: ['index'],
       filename: 'index.html'
-    }),
-    new HtmlWebpackPlugin({
-      template: './src/page-about/tmpl.html',
-      inject: 'body',
-      chunks: ['about'],
-      filename: 'about.html'
-    }),
-    new HtmlWebpackPlugin({
-      template: './src/page-contacts/tmpl.html',
-      inject: 'body',
-      chunks: ['contacts'],
-      filename: 'contacts.html'
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',

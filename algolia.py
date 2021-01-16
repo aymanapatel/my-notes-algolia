@@ -14,9 +14,9 @@ from algoliasearch.search_client import SearchClient
 #client = SearchClient.create(configs.get("ALGOLIAapplicationid").data, configs.get("ALGOLIAapikeysecret").data) #local
 
 client = SearchClient.create("T81G59BI39", str(os.environ.get("KEY")))
-#client = SearchClient.create('T81G59BI39', '8a841844c2672acb420fd9521568a52e')
 
-print( str(os.environ.get("KEY")))
+key = str(os.environ.get("KEY"))
+print("Test", key)
 
 index = client.init_index("my-notes")
 
@@ -26,6 +26,7 @@ def add_records(filename: str):
     with open(filename, newline="") as f:
         csv_r = list(csv.DictReader(f, delimiter=";"))
 
+        # Bug: This checks # of rows and not change in indices
         try: 
             len_idx = index.search("")["nbHits"]
             if len(csv_r) > len_idx:
@@ -35,7 +36,7 @@ def add_records(filename: str):
                 print(f"{len(csv_r[len_idx:])} new records added.")
                 return
         except:
-            print( str(os.environ.get("KEY")))   
+            print("Exception")   
 
     print("Nothing new.")
 
