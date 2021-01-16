@@ -1,6 +1,8 @@
 = My Notes
 :toc:
 
+> Inspired from this https://github.com/aquadzn/learn-x-by-doing-y[repo]
+
 == Secrets
 
 https://www.youtube.com/watch?v=WuWsg0Ldess&t=142
