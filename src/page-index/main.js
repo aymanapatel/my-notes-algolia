@@ -6,9 +6,9 @@
 // const apiKeySecret = properties.get('ALGOLIAapikeysecret');
 // const searchClient = algoliasearch(applicationId, apiKeySecret);
 
+const dotenv = require('dotenv')
 
-
-const searchClient = algoliasearch('T81G59BI39', '8a841844c2672acb420fd9521568a52e');
+const searchClient = algoliasearch('T81G59BI39', process.env.KEY);
 
 const search = instantsearch({
     indexName: 'my-notes',
