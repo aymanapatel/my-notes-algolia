@@ -14,8 +14,9 @@ from algoliasearch.search_client import SearchClient
 #client = SearchClient.create(configs.get("ALGOLIAapplicationid").data, configs.get("ALGOLIAapikeysecret").data) #local
 
 client = SearchClient.create("T81G59BI39", str(os.environ.get("KEY")))
-#client = SearchClient.create('T81G59BI39', '<>')
+#client = SearchClient.create('T81G59BI39', '8a841844c2672acb420fd9521568a52e')
 
+print( str(os.environ.get("KEY")))
 
 index = client.init_index("my-notes")
 
@@ -24,7 +25,12 @@ def add_records(filename: str):
 
     with open(filename, newline="") as f:
         csv_r = list(csv.DictReader(f, delimiter=";"))
-        len_idx = index.search("")["nbHits"]
+
+        try: 
+            len_idx = index.search("")["nbHits"]
+
+        except:
+            print( str(os.environ.get("KEY")))   
 
         if len(csv_r) > len_idx:
             index.save_objects(
