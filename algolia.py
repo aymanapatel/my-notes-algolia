@@ -28,16 +28,14 @@ def add_records(filename: str):
 
         try: 
             len_idx = index.search("")["nbHits"]
-
+            if len(csv_r) > len_idx:
+                index.save_objects(
+                    csv_r[len_idx:], {"autoGenerateObjectIDIfNotExist": "true"}
+                )
+                print(f"{len(csv_r[len_idx:])} new records added.")
+                return
         except:
             print( str(os.environ.get("KEY")))   
-
-        if len(csv_r) > len_idx:
-            index.save_objects(
-                csv_r[len_idx:], {"autoGenerateObjectIDIfNotExist": "true"}
-            )
-            print(f"{len(csv_r[len_idx:])} new records added.")
-            return
 
     print("Nothing new.")
 
