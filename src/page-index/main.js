@@ -1,10 +1,6 @@
 
 
-// let propertiesReader = require('properties-reader');
-// let properties = propertiesReader('../keys.properties');
-// const applicationId = properties.get('ALGOLIAapplicationid');
-// const apiKeySecret = properties.get('ALGOLIAapikeysecret');
-// const searchClient = algoliasearch(applicationId, apiKeySecret);
+// const {algoliaKey} = require('../../config')
 
 const searchClient = algoliasearch('T81G59BI39', process.env.NODE_KEY);
 
