@@ -1,6 +1,19 @@
 = My Notes
 :toc:
 
+ifdef::env-github[]
+++++
+<p align="center">
+  <img src="https://img.shields.io/badge/MADE%20BY%20Vercel-000000.svg?style=for-the-badge&logo=vercel&labelColor=000000&logoWidth=20" href="https://vercel.com/dashboard">
+  <img width="100" height="30" src="https://www.vhv.rs/dpng/d/540-5404516_logo-algolia-nebula-blue-withspaces2x-svg-algolia-logo.png" href="https://www.algolia.com/doc">
+</p>
+++++
+endif::[]
+
+ifndef::env-github[]
+image::map.png[A map, align=center, link="https://vercel.com/dashboard"]
+endif::[]
+
 
 > Inspired from this https://github.com/aquadzn/learn-x-by-doing-y[repo]
 
