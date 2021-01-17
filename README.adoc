@@ -1,7 +1,11 @@
 = My Notes
 :toc:
 
+
 > Inspired from this https://github.com/aquadzn/learn-x-by-doing-y[repo]
+
+
+**https://my-notes-algolia.vercel.app[Link]**
 
 == Secrets
 
