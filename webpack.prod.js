@@ -71,7 +71,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(), // cleans output.path by default
     new HtmlWebpackPlugin({
-      favicon: './src/assets/favicon.png'
+      favicon: './src/assets/favicon.png',
       template: './src/page-index/index.html',
       inject: 'body',
       chunks: ['index'],
