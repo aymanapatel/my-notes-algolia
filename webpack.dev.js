@@ -60,10 +60,11 @@ module.exports = {
   // https://webpack.js.org/concepts/plugins/
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/page-index/tmpl.html',
+      template: './src/page-index/index.html',
       inject: true,
       chunks: ['index'],
-      filename: 'index.html'
+      filename: 'index.html',
+      favicon: './src/assets/favicon.png'
     }),
     new webpack.EnvironmentPlugin(['NODE_KEY'])
     // new Dotenv({

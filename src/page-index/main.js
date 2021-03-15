@@ -2,7 +2,7 @@
 
 // const {algoliaKey} = require('../../config')
 
-const searchClient = algoliasearch('T81G59BI39', "96de5eacbcd0c223fc67d5c05b929ef1");
+const searchClient = algoliasearch('T81G59BI39', process.env.NODE_KEY);
 
 const search = instantsearch({
     indexName: 'my-notes',
