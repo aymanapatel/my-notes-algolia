@@ -2,7 +2,7 @@
 
 // const {algoliaKey} = require('../../config')
 
-const searchClient = algoliasearch('T81G59BI39', process.env.NODE_KEY);
+const searchClient = algoliasearch('T81G59BI39', "96de5eacbcd0c223fc67d5c05b929ef1");
 
 const search = instantsearch({
     indexName: 'my-notes',
@@ -19,25 +19,20 @@ const renderHits = (renderOptions, isFirstRender) => {
     // Handle empty results
     widgetParams.container.innerHTML =
         hits.length < 1
-            ? `<div class="col-span-2 md:col-span-4"><p class="text-lg md:text-2xl text-gray-200 text-center font-semibold font-heading">Sorry, no results found!</p></div>`
+            ? `<div class="col-span-2 lg:col-span-4"><p class="text-lg lg:text-2xl text-gray-200 text-center font-semibold font-heading">Sorry, no results found!</p></div>`
             : `
                 ${hits
                 .map(
                     item =>
                         `
-                            <div>
-                                <h3 class="text-lg md:text-2xl text-gray-200 text-left font-semibold font-heading">
+                            <a class="bg-white bg-opacity-10 shadow-xl rounded-md p-4 transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-105 hover:bg-opacity-20" href="${item.url}" target="_blank">
+                                <h3 class="text-lg lg:text-2xl text-gray-200 text-left font-semibold font-heading hover:text-gray-300">
                                     ${instantsearch.highlight({ attribute: 'title', hit: item })}
                                 </h3>
-                                <div class="truncate mt-2">
-                                    <a class="text-gray-200 underline" href="${item.url}" target="_blank">
-                                        ${item.url}
-                                    </a>
-                                </div>
-                                <div class="mt-2 px-3 py-1 text-sm bg-purple-500 rounded-full text-gray-100 font-bold break-words">
+                                <div class="mt-2 text-blue-400 font-bold text-left break-words">
                                     ${instantsearch.highlight({ attribute: 'technologies', hit: item })}
                                 </div>
-                            </div>
+                            </a>
                             `
                 )
                 .join('')}
@@ -58,7 +53,21 @@ const renderSearchBox = (renderOptions, isFirstRender) => {
 
     if (isFirstRender) {
         const input = document.createElement('input');
-        input.classList.add('rounded-md', 'shadow-lg', 'w-full', 'py-3', 'px-5', 'text-gray-400', 'bg-white', 'bg-opacity-20', 'placeholder-white', 'placeholder-opacity-40', 'focus:outline-none', 'focus:ring-4', 'focus:ring-white', 'focus:ring-opacity-30')
+        input.classList.add(
+            'rounded-md',
+            'shadow-lg',
+            'w-full',
+            'py-3',
+            'px-5',
+            'text-gray-400',
+            'bg-gray-700',
+            'placeholder-white',
+            'placeholder-opacity-40',
+            'focus:outline-none',
+            'focus:ring-4',
+            'focus:ring-gray-400',
+            'focus:ring-opacity-70'
+        );
         input.placeholder = '🔎 Search me...';
 
         const loadingIndicator = document.createElement('span');
@@ -96,7 +105,7 @@ const renderPagination = (renderOptions, isFirstRender) => {
     const container = document.querySelector('#pagination');
 
     container.innerHTML = `
-    <ul class="flex mx-auto list-reset">
+    <ul class="flex flex-wrap mx-auto list-reset">
       ${!isFirstPage
             ? `
             <li>
@@ -125,7 +134,7 @@ const renderPagination = (renderOptions, isFirstRender) => {
                 page => `
             <li>
               <a
-                class="block px-3 py-2 text-white hover:underline ${currentRefinement === page ? 'underline text-purple-500' : ''}"
+                class="block px-3 py-2 text-white hover:underline ${currentRefinement === page ? 'underline text-red-500' : ''}"
                 href="${createURL(page)}"
                 data-value="${page}"
               >
@@ -174,6 +183,64 @@ const customPagination = instantsearch.connectors.connectPagination(
     renderPagination
 );
 
+// Create the render function
+
+const renderMenuSelect = (renderOptions, isFirstRender) => {
+
+    console.log("Sar %s", isFirstRender)
+    const { items, canRefine, refine, widgetParams } = renderOptions;
+
+    if (isFirstRender) {
+        const select = document.createElement('select');
+        select.classList.add('rounded-md',
+            'shadow-lg',
+            'cursor-pointer',
+            'w-full',
+            'py-3',
+            'px-5',
+            'text-purple-500',
+            'text-center',
+            'bg-white',
+            'hover:text-purple-600',
+            'focus:outline-none',
+            'focus:ring-4',
+            'focus:ring-purple-500',
+            'focus:ring-opacity-70'
+        );
+
+        select.addEventListener('change', event => {
+            refine(event.target.value);
+        });
+
+        widgetParams.container.appendChild(select);
+    }
+
+    const select = widgetParams.container.querySelector('select');
+
+    select.disabled = !canRefine;
+
+    
+    select.innerHTML = `
+      <option value="">All languages</option>
+      ${items
+            .map(
+                item =>
+                    `<option
+              value="${item.value}"
+              ${item.isRefined ? 'selected' : ''}
+            >
+              ${item.label} (${item.count})
+            </option>`
+            )
+            .join('')}
+    `;
+    console.log("InnerHTML %s", JSON.stringify(items))
+};
+
+// Create the custom widget
+const customMenuSelect = instantsearch.connectors.connectMenu(renderMenuSelect);
+
+
 search.addWidgets([
     customSearchBox({
         container: document.querySelector('#searchbox'),
@@ -187,45 +254,34 @@ search.addWidgets([
         container: document.querySelector('#pagination'),
     }),
 
+    
+    customMenuSelect({
+        container: document.querySelector('#menu-select'),
+        attribute: 'main_language',
+        limit: 25,
+    }),
+
+    
+    instantsearch.widgets.menu({
+      container: document.querySelector('#aymandiv'),
+      attribute: 'title',
+      templates: {
+        showMoreText: `
+          {{#isShowingMore}}
+            Voir moins…
+          {{/isShowingMore}}
+          {{^isShowingMore}}
+            Voir plus…
+          {{/isShowingMore}}
+          `,
+      }
+    }),
+    
+    
+
     instantsearch.widgets.configure({
         hitsPerPage: 12
     }),
-    // instantsearch.widgets.hits({
-    //     container: '#hits',
-    //     templates: {
-    //         item(hit) {
-    //             return `
-    //                 <div class="flex-1">
-    //                     ${instantsearch.highlight({ attribute: 'title', hit })}
-    //                 </div>
-    //             `;
-    //         },
-    //     },
-    // }),
-
-    // instantsearch.widgets.currentRefinements({
-    //     container: '#current-refinements',
-    // }),
-
-    // instantsearch.widgets.clearRefinements({
-    //     container: '#clear-refinements',
-    // }),
-
-    // instantsearch.widgets.refinementList({
-    //     container: '#names-list',
-    //     attribute: 'subject_name',
-    //     templates: {
-    //         item(item) {
-    //             const { url, label, count, isRefined } = item;
-
-    //             return `
-    //         <a href="${url}" style="${isRefined ? 'font-weight: bold' : ''}">
-    //             ${label} (${count})
-    //         </a>
-    //     `;
-    //         },
-    //     },
-    // }),
 
 ]);
 

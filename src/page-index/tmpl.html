@@ -41,41 +41,43 @@
     <link rel="stylesheet" href="style.css"> 
 </head>
 
-<body class="bg-black">
-  <section class="py-8 px-4 text-center">
-      <div class="w-full max-w-4xl mx-auto">
-          <div class="flex justify-center space-x-8 md:space-x-20">
-              <a href="https://github.com/aquadzn/learn-x-by-doing-y" target="_blank"
-                  class="cursor-pointer text-sm text-gray-200 font-bold hover:underline">Ayman's algolia</a>
-          </div>
-          <div>
-              <h2 id="header"
-                  class="text-5xl leading-tight md:text-7xl md:leading-tight text-white font-semibold mt-10 mb-6">Ayman's Algolia</h2>
+<body class="bg-fixed bg-no-repeat bg-gradient-to-t from-black to-gray-900">
+    <section class="py-8 px-4 text-center">
+        <div class="w-full max-w-4xl mx-auto">
+            <div class="flex justify-center space-x-8 lg:space-x-20">
+                <a href="https://github.com/aymanapatel/my-notes-algolia" target="_blank"
+                    class="cursor-pointer text-sm text-gray-200 font-bold hover:underline">Ayman's algolia</a>
+            </div>
+            <div>
+                <h2 id="header"
+                    class="cursor-default text-5xl leading-tight lg:text-7xl lg:leading-tight text-white font-semibold mt-10 mb-6">Ayman's Algolia</h2>
 
-              <p class="mb-10 font-semibold text-gray-400 leading-relaxed">
-                  Remembering is hard
-              </p>
-              <div class="container mx-auto">
-                  <div class="flex justify-center space-x-4 md:space-x-10">
-                      <div class="bg-black" id="searchbox"></div>
-                      <div
-                          class="rounded-md shadow-lg px-5 py-3 font-bold text-white bg-purple-500 transition duration-500 ease-in-out hover:bg-purple-600 hover:underline hover:text-gray-100">
-                          <a href="https://github.com/aymanapatel/my-notes-algolia/blob/main/projects.csv"
+                <p class="cursor-default mb-10 font-semibold text-gray-400 leading-relaxed">
+                    Remembering is hard
+                </p>
+                <div id="aymandiv" class="flex p-4 font-bold text-white bg-red-500">ds</div>
+                <div class="container mx-auto">
+                    <div class="flex flex-col justify-center space-y-4 lg:flex-row lg:space-y-0 lg:space-x-6">
+                        <div
+                            class="rounded-md shadow-lg px-5 py-3 font-bold text-white bg-red-500 transition duration-500 ease-in-out hover:bg-green-600 hover:underline hover:text-gray-100">
+                            <a href="https://github.com/aymanapatel/my-notes-algolia/blob/main/projects.csv"
                               target="_blank">
                               Add a project
                           </a>
-                      </div>
-                  </div>
-                  <div id="pagination" class="flex p-4"></div>
-              </div>
+                        </div>
+                        <div class="order-last lg:order-none" id="searchbox"></div>
+                        <div id="menu-select"></div>
+                    </div>
+                    <div id="pagination" class="flex p-4"></div>
+                </div>
 
 
-              <section class="container mx-auto">
-                  <div id="hits"
-                      class="md:mt-4 grid grid-cols-2 gap-x-4 gap-y-2 md:grid-cols-4 md:gap-x-8 md:gap-y-4">
-                  </div>
-              </section>
-          </div>
-      </div>
-  </section>
+                <section class="container mx-auto">
+                    <div id="hits"
+                        class="grid grid-cols-2 gap-x-4 gap-y-4 lg:mt-4 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-6">
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
 </html>

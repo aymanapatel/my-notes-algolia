@@ -145,7 +145,7 @@ const renderPagination = (renderOptions, isFirstRender) => {
                 page => `
             <li>
               <a
-                class="block px-3 py-2 text-white hover:underline ${currentRefinement === page ? 'underline text-purple-500' : ''}"
+                class="block px-3 py-2 text-white hover:underline ${currentRefinement === page ? 'underline text-red-500' : ''}"
                 href="${createURL(page)}"
                 data-value="${page}"
               >
