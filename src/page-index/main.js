@@ -2,7 +2,7 @@
 
 // const {algoliaKey} = require('../../config')
 
-const searchClient = algoliasearch('T81G59BI39', process.env.NODE_KEY);
+const searchClient = algoliasearch('T81G59BI39', "af12ec85466e0e85bc8cc01bf527cfde");
 
 const search = instantsearch({
     indexName: 'my-notes',
@@ -35,7 +35,7 @@ const renderHits = (renderOptions, isFirstRender) => {
                                     </a>
                                 </div>
                                 <div class="mt-2 px-3 py-1 text-sm bg-purple-500 rounded-full text-gray-100 font-bold break-words">
-                                    ${instantsearch.highlight({ attribute: 'technology', hit: item })}
+                                    ${instantsearch.highlight({ attribute: 'technologies', hit: item })}
                                 </div>
                             </div>
                             `

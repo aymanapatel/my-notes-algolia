@@ -13,10 +13,7 @@ from algoliasearch.search_client import SearchClient
 #    configs.load(config_file)
 #client = SearchClient.create(configs.get("ALGOLIAapplicationid").data, configs.get("ALGOLIAapikeysecret").data) #local
 
-client = SearchClient.create("T81G59BI39", str(os.environ.get("KEY")))
-
-key = str(os.environ.get("KEY"))
-print("Test", key)
+client = SearchClient.create("T81G59BI39", "af12ec85466e0e85bc8cc01bf527cfde")
 
 index = client.init_index("my-notes")
 
