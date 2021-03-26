@@ -65,3 +65,11 @@ https://github.com/ivarprudnikov/webpack-static-html-pages/tree/gh-pages[Github 
 3. Eliminate anything that is confusing
 4. Add colorful details 
 5. Remove unnecessay words.
+
+== FAST
+
+1. Find
+2. Assemble
+3. Speak
+4. Teach
+    - Teach others
