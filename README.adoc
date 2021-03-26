@@ -47,3 +47,21 @@ https://www.youtube.com/watch?v=WuWsg0Ldess&t=142
 == Webpack static 
 
 https://github.com/ivarprudnikov/webpack-static-html-pages/tree/gh-pages[Github repo]
+
+== Content Creation
+
+=== Quad of content creation
+
+1. Conversation
+2. Sharing
+3. Creation
+4. Distribution
+
+
+=== CLEAR
+
+1. Create a Rhythm
+2. Link your sentences
+3. Eliminate anything that is confusing
+4. Add colorful details 
+5. Remove unnecessay words.
